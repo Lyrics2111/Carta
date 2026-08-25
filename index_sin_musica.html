@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para mi muñeca ♡</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;min-height:100vh;overflow-x:hidden;padding:24px;
+  font-family:Georgia,"Times New Roman",serif;color:#633b4d;
+  background:linear-gradient(135deg,#fff5fa,#ffdbea,#fff8fc);
+  display:flex;align-items:center;justify-content:center;
+}
+.hearts{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.heart{position:absolute;bottom:-35px;animation:float 9s linear infinite;opacity:.5}
+@keyframes float{
+  to{transform:translateY(-115vh) rotate(25deg);opacity:0}
+}
+.card{
+  width:min(92vw,520px);min-height:650px;padding:40px 28px;
+  border-radius:30px;background:rgba(255,255,255,.88);
+  border:1px solid rgba(214,126,163,.35);
+  box-shadow:0 20px 60px rgba(166,77,116,.22);
+  backdrop-filter:blur(8px);
+}
+.cover{text-align:center}
+.cover h1{font-size:42px;margin:70px 0 8px;color:#b54f7c}
+.subtitle{font-size:19px;font-style:italic;margin-bottom:38px}
+button{
+  border:0;border-radius:999px;padding:13px 23px;
+  background:#d96b9a;color:white;font-size:16px;cursor:pointer;
+  box-shadow:0 8px 20px rgba(217,107,154,.28)
+}
+button:active{transform:scale(.97)}
+.letter{display:none;line-height:1.75;font-size:17px}
+.letter h2{text-align:center;color:#b54f7c;font-size:30px;margin:0 0 28px}
+.letter p{margin:0 0 18px}
+.signature{text-align:center;margin-top:28px;font-size:20px;color:#b54f7c}
+.small{text-align:center;font:12px Arial,sans-serif;color:#a27c8d;margin-top:25px}
+@media(max-width:430px){
+  .card{padding:30px 21px;min-height:620px}
+  .cover h1{font-size:35px;margin-top:62px}
+  .letter{font-size:16px}
+}
+</style>
+</head>
+<body>
+
+<div class="hearts" id="hearts"></div>
+
+<div class="card">
+<section class="cover" id="cover">
+  <div style="font-size:54px">💗</div>
+  <h1>Para mi muñeca</h1>
+  <div class="subtitle">Feliz primer mes juntitos ♡</div>
+  <p>Hay algo que quiero decirte...</p>
+  <button onclick="openLetter()">Abrir mi cartita 💌</button>
+</section>
+
+<section class="letter" id="letter">
+  <h2>Mi amooooooooor 💗</h2>
+
+  <p>Feliz mes juntitos ^ ^</p>
+
+  <p>No sabes realmente lo feliz que estoy de que ya haya pasado un mes desde que empezamos a estar juntitos. La verdad es que ha sido un mes en el que no he sentido pasar los días. Me la paso tan bien a tu lado que para mí fue como un abrir y cerrar de ojos y ya pasó nuestro primer mes.</p>
+
+  <p>Espero de todo corazón que podamos seguir por muchísimos meses más juntos. Sinceramente, sí quiero estar a tu lado por muchísimo tiempo, si no es que por lo que me reste de vida. El cariño y amor que te tengo es demasiado inmenso, al punto de abrirme y ceder en cosas que jamás pensé que haría si te soy sincero. Pero es que me gusta escucharte feliz.</p>
+
+  <p>Quizá no me guste el anime como a ti, quizá no me guste tanto Minecraft como a ti, pero me gusta involucrarme en tus gustos porque me gusta pasar tiempo contigo. Me gusta conocerte cada día un poquito más, escucharte hablar de las cosas que te gustan y, sobre todo, escucharte feliz. Para mí, tu bienestar y tu felicidad son demasiado importantes. La realidad es que eres mi prioridad.</p>
+
+  <p>Sé que tal vez puedo ser terco, incluso molesto, y seguramente habrá algún defecto mío que encuentres con el tiempo porque no soy perfecto, eso es una realidad. Pero cada día trato de ser mejor que el anterior, no solamente por mí, sino también por nosotros. Sinceramente no quiero que terminemos.</p>
+
+  <p>Por eso siempre te digo que me comuniques todo, que te abras conmigo y que tengas la confianza de contarme lo que sea. Quiero que cuando tengamos algún problema, en lugar de alejarnos o dejar que las cosas se hagan más grandes, podamos hablar, escucharnos y resolverlo juntitos, porque somos un equipo :3.</p>
+
+  <p>Y sinceramente me pone un poquito triste no poder regalarte algo, unas flores, tus Sabritas o cualquier cosita que sé que te gustaría. Me encantaría poder darte el mundo entero, pero por el momento no me es posible con todos los gastos que tengo. Aun así, quería darte esta pequeña cartita, porque aunque sea algo sencillo, quería darte un pedacito de lo que siente mi corazón por ti.</p>
+
+  <p>Gracias por este primer mes, por cada momento, cada plática, cada risa y por dejarme compartir todo esto contigo. Espero que este sea solamente el primero de muchísimos meses que podamos celebrar juntitos.</p>
+
+  <div class="signature">
+    Te amo muchísimo, muñeca. ❤️<br><br>
+    Eres de lo mejor que me ha pasado en un buen ratototote.<br><br>
+    MUAAAAAAAAAAAAAAAAAAAK 💋❤️
+  </div>
+
+  <div class="small">Hecho con muchísimo amor para ti ♡</div>
+</section>
+</div>
+
+<script>
+function openLetter(){
+  document.getElementById("cover").style.display="none";
+  document.getElementById("letter").style.display="block";
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+const box=document.getElementById("hearts");
+for(let i=0;i<20;i++){
+  const heart=document.createElement("div");
+  heart.className="heart";
+  heart.textContent=["♡","♥","💗","💖"][i%4];
+  heart.style.left=(Math.random()*100)+"%";
+  heart.style.animationDelay=(Math.random()*9)+"s";
+  heart.style.fontSize=(14+Math.random()*18)+"px";
+  box.appendChild(heart);
+}
+</script>
+</body>
+</html>
